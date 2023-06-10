@@ -3,7 +3,9 @@ import os
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-head = "The following is a conversation with an AI assistant. The assistant is clever, especially helpful for recommending subjects to help User's study and delivers its answers clearly within 1 sentence.\n\nUser: "
+head = """The following is a conversation with an AI assistant. The assistant is clever, especially helpful for recommending subjects to help User's study. 
+If the User wants to study something, the assistant recommend a prerequisite to study that subject. 
+For example, if the User wants to study about 2d tree, the assistant can say 'You need to study linked list first.'\n\nUser: """
 
 while True:
     content = input("User: ")
@@ -12,7 +14,7 @@ while True:
         model="text-davinci-003",
         prompt= head + content + "\nAI: ",
         temperature=1.0,
-        max_tokens=50,
+        max_tokens=100,
         top_p=0.9,
         frequency_penalty=0,
         presence_penalty=0,

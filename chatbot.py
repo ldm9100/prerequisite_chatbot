@@ -8,7 +8,7 @@ while True:
 
     response = openai.Completion.create(
         model="davinci:ft-personal-2023-06-10-11-29-28",
-        prompt= "\n\nUser: " + content + "\nAI: ",
+        prompt= "\nUser: " + content + "\nAI: ",
         temperature=1.0,
         max_tokens=50,
         top_p=0.9,
